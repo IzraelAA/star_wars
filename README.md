@@ -40,5 +40,12 @@ flutter run
   - **domain/** *(Business logic layer)*
   - **data/** *(Data layer)*
  
- 
+## Screenshot
+ ![Alt text](./screenshot/Screenshot_20231120_004149.png)
+ ![Alt text](./screenshot/Screenshot%202023-11-20%20004100.png)
+ ![Alt text](./screenshot/Screenshot_20231120_003950.png)
+ ![Alt text](./screenshot/Screenshot_20231120_004031.png)
+
+ ## Video
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/3jesrKFfevc?si=ageiHD8HT5jDY03Y&amp;start=2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
  
