@@ -6,7 +6,7 @@ import 'package:star_wars/feature/home/domain/entities/people_model.dart';
 import 'package:star_wars/feature/home/domain/entities/planet_model.dart';
 import 'package:star_wars/feature/home/domain/entities/transportation_model.dart';
 import 'package:star_wars/feature/home/domain/use_cases/get_people.dart';
-
+/// Abstract class defining the data source interface for fetching Star Wars-related data.
 abstract class StarWarsDataSource {
   Future<ParserJson<List<PeopleModel>>> getPeopleData(
       ParamsPeople paramsPeople);
@@ -16,6 +16,7 @@ abstract class StarWarsDataSource {
   Future<PlanetModel> getHomeWorld(String endpoint);
 }
 
+/// Implementation of [StarWarsDataSource] using [NetworkModule] to interact with the Star Wars API.
 @Injectable(as: StarWarsDataSource)
 class StarWarsDatSourceImpl extends NetworkModule
     implements StarWarsDataSource {
@@ -29,7 +30,7 @@ class StarWarsDatSourceImpl extends NetworkModule
     final responseBody = responseHandler(response);
     final data = ParserJson.fromJson(responseBody, (data) {
       List<PeopleModel> result =
-          List.from(data.map((v) => PeopleModel.fromJson(v)).toList());
+      List.from(data.map((v) => PeopleModel.fromJson(v)).toList());
 
       return result;
     });

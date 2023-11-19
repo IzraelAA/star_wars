@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:star_wars/feature/home/presentation/manager/detail_home_cubit/detail_home_cubit.dart';
 import 'package:star_wars/feature/home/presentation/manager/home_manager_cubit.dart';

@@ -12,6 +12,7 @@ import 'package:star_wars/feature/home/domain/use_cases/get_vehicles.dart';
 
 part 'detail_home_state.dart';
 
+/// Cubit managing the detailed state for the home screen in the Star Wars app.
 @LazySingleton()
 class DetailHomeCubit extends Cubit<DetailHomeState> {
   DetailHomeCubit(
@@ -30,6 +31,7 @@ class DetailHomeCubit extends Cubit<DetailHomeState> {
   final GetVehicles getVehicles;
   final GetHomeWorld getHomeWorld;
 
+  /// Fetch detailed information about a character, including starships, vehicles, and homeworld.
   void getDetailPeople(PeopleModel peopleModel) {
     emit(const DetailHomeState(
         statusHomeWorld: StatusState.loading,
@@ -43,6 +45,7 @@ class DetailHomeCubit extends Cubit<DetailHomeState> {
     homeWorld(peopleModel);
   }
 
+  /// Fetch starship information for a character.
   void starship(PeopleModel peopleModel, index) async {
     if (peopleModel.starships!.isNotEmpty) {
       List<TransportationModel> starshipModel = [];
@@ -62,6 +65,7 @@ class DetailHomeCubit extends Cubit<DetailHomeState> {
     }
   }
 
+  /// Fetch vehicle information for a character.
   void vehicle(PeopleModel peopleModel, index) async {
     if (peopleModel.vehicles!.isNotEmpty) {
       List<TransportationModel> vehicles = [];
@@ -74,7 +78,6 @@ class DetailHomeCubit extends Cubit<DetailHomeState> {
       var res = await getVehicles(url);
 
       res.fold((l) => "null", (r) {
-        print("check${r.name}");
         vehicles.add(r);
         emit(state.copyWith(
             statusVehicles: StatusState.loaded, vehiclesModel: vehicles));
@@ -82,8 +85,10 @@ class DetailHomeCubit extends Cubit<DetailHomeState> {
     }
   }
 
+  /// Fetch homeworld information for a character.
   void homeWorld(PeopleModel peopleModel) async {
-    var res = await getHomeWorld(peopleModel.homeworld ?? "");
+    var url = peopleModel.homeworld?.replaceFirst(RegExp(Endpoint.rawApi), '');
+    var res = await getHomeWorld(url ?? "");
 
     res.fold((l) => "null", (r) {
       emit(state.copyWith(statusHomeWorld: StatusState.loaded, homeWorld: r));

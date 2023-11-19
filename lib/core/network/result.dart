@@ -19,7 +19,7 @@ class Result<T> {
 
   static Result<T> success<T>(T? data, String? message) => Result(
         Status.success,
-        data!,
+        data as T,
         message: message,
       );
 

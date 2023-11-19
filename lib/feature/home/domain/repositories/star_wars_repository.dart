@@ -8,7 +8,6 @@ import 'package:star_wars/feature/home/domain/use_cases/get_people.dart';
 
 abstract class StarWarsRepository {
   Future<Either<Failure, ParserJson<List<PeopleModel>>>> people(ParamsPeople paramsPeople);
-
   Future<Either<Failure, TransportationModel>> getTransportation(String endpoint);
   Future<Either<Failure, PlanetModel>> getPlanet(String endpoint);
 }

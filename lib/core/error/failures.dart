@@ -21,8 +21,6 @@ class ServerFailure extends Failure {
   final String? message;
 
   ServerFailure({this.message = 'Server Error'});
-  // TODO: Update server error message
-
   @override
   List<Object> get props => [message!];
 }
