@@ -1,16 +1,44 @@
-# star_wars
+<response>
 
-A new Flutter project.
+# Star Wars Bloc Application with Clean Architecture
+
+Overview
+This Flutter application embraces Uncle Bob's Clean Architecture and employs the BLoC pattern for robust state management. Utilizing Dio as the networking module, the app seamlessly integrates with the SWAPI (Star Wars API) to fetch and display data.
+
+### Caching Mechanism
+Data is cached using shared preferences. Any data created more than one week ago will be automatically removed.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
+- Ensure Flutter is installed on your machine.
 
-A few resources to get you started if this is your first Flutter project:
+### Installation
+1. Clone the repository: `git clone https://github.com/IzraelAA/star_wars`
+2. Navigate to the project directory: `cd https://github.com/IzraelAA/star_wars`
+3. Run `flutter pub get` to fetch dependencies.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Build Runner and Dependency Injection Setup
+1. Ensure `build_runner` is installed globally: `flutter pub global activate build_runner`
+2. Run the following command to generate code and set up injection:
+```bash
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+### Run the Application
+Execute the following command to run the application:
+```bash
+flutter run
+```
+
+## Folder Structure
+- **injection/** *(Dependency injection setup)*
+- **main.dart** *(Entry point)*
+- **lib/**
+  - **presentation/** *(UI layer)*
+  - **domain/** *(Business logic layer)*
+  - **data/** *(Data layer)*
+ 
+ 
+ 
