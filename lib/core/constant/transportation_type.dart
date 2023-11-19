@@ -1,0 +1,4 @@
+enum TransportationType{
+  vehicles,
+  starship,
+}
